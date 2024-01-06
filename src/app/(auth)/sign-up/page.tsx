@@ -23,11 +23,10 @@ const page = () => {
     resolver: zodResolver(authCredentialsValidator),
   });
 
-  const { data } = trpc.anyApiRoute.useQuery();
-  console.log("DATA :", data);
+  const { mutate, isLoading } = trpc.auth.createPayloadUser.useMutation({});
 
   const onSubmit = ({ email, password }: TAuthCredentialsValidator) => {
-    // Send data to the server
+    mutate({ email, password });
   };
   return (
     <div className="container relative flex pt-20 flex-col items-center justify-center lg:px-0">
@@ -67,6 +66,7 @@ const page = () => {
                   })}
                   placeholder="password"
                   {...register("password")}
+                  type="password"
                 />
               </div>
               <Button>Sign up</Button>
