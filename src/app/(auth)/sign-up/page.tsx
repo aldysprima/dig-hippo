@@ -17,7 +17,7 @@ import { toast } from "sonner";
 import { ZodError } from "zod";
 import { useRouter } from "next/navigation";
 
-const page = () => {
+const Page = () => {
   const {
     register,
     handleSubmit,
@@ -106,4 +106,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
